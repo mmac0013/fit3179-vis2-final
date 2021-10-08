@@ -81,7 +81,7 @@
             "layer": [
                 {
                     "data": {
-                        "url": "proportional_symbol/js/global_countries.topo.json",
+                        "url": "proportional_symbol_area_chart/js/global_countries.topo.json",
                         "format": {
                             "type": "topojson",
                             "feature": "global_countries.topojson"
@@ -95,7 +95,7 @@
                 },
                 {
                     "data": {
-                        "url": "proportional_symbol/data/all_targets.csv"
+                        "url": "proportional_symbol_area_chart/data/all_targets.csv"
                     },
                     "transform": [
                         {
@@ -235,7 +235,7 @@
             "width": "container",
             "height": 150,
             "data": {
-                "url": "proportional_symbol/data/all_targets.csv"
+                "url": "proportional_symbol_area_chart/data/all_targets.csv"
             },
             "transform": [
                 {
