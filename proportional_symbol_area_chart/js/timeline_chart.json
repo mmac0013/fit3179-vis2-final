@@ -1,0 +1,336 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "autosize": "fit-x",
+    "params": [
+        {
+            "name": "Year_selection",
+            "value": 1945,
+            "bind": {
+                "input": "range",
+                "min": 1939,
+                "max": 1945,
+                "step": 1,
+                "name": "Year:  "
+            }
+        },
+        {
+            "name": "Zoom_level",
+            "value": 250,
+            "bind": {
+                "input": "range",
+                "min": 250,
+                "max": 1500,
+                "step": 250,
+                "name": "Zoom level:  "
+            }
+        },
+        {
+            "name": "Set_centre",
+            "value": [
+                90,
+                70
+            ],
+            "bind": {
+                "input": "select",
+                "options": [
+                    [
+                        90,
+                        70
+                    ],
+                    [
+                        10,
+                        60
+                    ],
+                    [
+                        125,
+                        25
+                    ],
+                    [
+                        124,
+                        42
+                    ],
+                    [
+                        20,
+                        35
+                    ]
+                ],
+                "labels": [
+                    "World",
+                    "Europe",
+                    "South-East Asia",
+                    "North-East Asia",
+                    "Africa"
+                ],
+                "name": "Region:  "
+            }
+        }
+    ],
+    "vconcat": [
+        {
+            "width": "container",
+            "height": 500,
+            "projection": {
+                "type": "equalEarth",
+                "center": {
+                    "expr": "Set_centre"
+                },
+                "scale": {
+                    "expr": "Zoom_level"
+                }
+            },
+            "layer": [
+                {
+                    "data": {
+                        "url": "proportional_symbol/js/global_countries.topo.json",
+                        "format": {
+                            "type": "topojson",
+                            "feature": "global_countries.topojson"
+                        }
+                    },
+                    "mark": {
+                        "type": "geoshape",
+                        "fill": "#D3D3D3",
+                        "stroke": "white"
+                    }
+                },
+                {
+                    "data": {
+                        "url": "proportional_symbol/data/all_targets.csv"
+                    },
+                    "transform": [
+                        {
+                            "filter": "datum.Year == Year_selection"
+                        }
+                    ],
+                    "params": [
+                        {
+                            "name": "Set_theatre",
+                            "select": {
+                                "type": "point",
+                                "fields": [
+                                    "Theater of Operations Full Name"
+                                ],
+                                "on": "click"
+                            },
+                            "bind": "legend"
+                        }
+                    ],
+                    "mark": {
+                        "type": "circle"
+                    },
+                    "encoding": {
+                        "longitude": {
+                            "field": "Target Longitude",
+                            "type": "quantitative"
+                        },
+                        "latitude": {
+                            "field": "Target Latitude",
+                            "type": "quantitative"
+                        },
+                        "size": {
+                            "field": "Total Weight (Tons)",
+                            "title": "Total Explosives Weight (Tons)",
+                            "type": "quantitative",
+                            "scale": {
+                                "type": "threshold",
+                                "domain": [
+                                    500,
+                                    5000
+                                ],
+                                "range": [
+                                    10,
+                                    50,
+                                    400
+                                ]
+                            },
+                            "legend": {
+                                "orient": "top",
+                                "padding": 10
+                            }
+                        },
+                        "color": {
+                            "field": "Theater of Operations Full Name",
+                            "title": "Theatre of Operations",
+                            "type": "nominal",
+                            "scale": {
+                                "domain": [
+                                    "China Burma India",
+                                    "East Africa",
+                                    "Europe",
+                                    "Mediterranean",
+                                    "Pacific"
+                                ],
+                                "range": [
+                                    "#ad494a",
+                                    "#5254a3",
+                                    "#bd9e39",
+                                    "#a55194",
+                                    "#8ca252"
+                                ]
+                            },
+                            "legend": {
+                                "orient": "top",
+                                "padding": 10
+                            }
+                        },
+                        "opacity": {
+                            "condition": {
+                                "param": "Set_theatre",
+                                "value": 1
+                            },
+                            "value": 0
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Mission Date",
+                                "title": "Mission Date",
+                                "type": "temporal",
+                                "timeUnit": "yearmonthdate"
+                            },
+                            {
+                                "field": "Theater of Operations Full Name",
+                                "title": "Theatre of Operations",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Target Country Formatted",
+                                "title": "Target",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Target Longitude",
+                                "type": "quantitative",
+                                "format": ".2f"
+                            },
+                            {
+                                "field": "Target Latitude",
+                                "type": "quantitative",
+                                "format": ".2f"
+                            },
+                            {
+                                "field": "Total Weight (Tons)",
+                                "title": "Total Explosives Weight (Tons)",
+                                "type": "quantitative",
+                                "format": ","
+                            },
+                            {
+                                "field": "High Explosives Type",
+                                "title": "Explosives Type",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Air Force",
+                                "type": "nominal"
+                            },
+                            {
+                                "field": "Aircraft Series",
+                                "type": "nominal"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "width": "container",
+            "height": 150,
+            "data": {
+                "url": "proportional_symbol/data/all_targets.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Year == Year_selection"
+                }
+            ],
+            "params": [
+                {
+                    "name": "Set_theatre",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "Theater of Operations Full Name"
+                        ],
+                        "on": "mouseover"
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "mark": {
+                "type": "area"
+            },
+            "encoding": {
+                "x": {
+                    "timeUnit": "yearmonth",
+                    "type": "temporal",
+                    "field": "Mission Date",
+                    "title": null,
+                    "axis": {
+                        "domain": false,
+                        "format": "%b %Y",
+                        "tickSize": 0,
+                        "tickCount": 6
+                    }
+                },
+                "y": {
+                    "aggregate": "count",
+                    "field": "Mission ID",
+                    "title": null,
+                    "axis": {
+                        "orient": "right"
+                    }
+                },
+                "detail": {
+                    "field": "Theater of Operations Full Name",
+                    "title": "Theatre of Operations"
+                },
+                "tooltip": [
+                    {
+                        "field": "yearmonth_Mission Date",
+                        "title": "Month/Year",
+                        "type": "temporal",
+                        "timeUnit": "yearmonth",
+                        "format": "%b %Y"
+                    },
+                    {
+                        "field": "Theater of Operations Full Name",
+                        "title": "Theatre of Operations",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "__count",
+                        "title": "Number of Missions",
+                        "type": "quantitative",
+                        "format": ","
+                    }
+                ],
+                "color": {
+                    "field": "Theater of Operations Full Name",
+                    "title": "Theatre of Operations",
+                    "scale": {
+                        "domain": [
+                            "China Burma India",
+                            "East Africa",
+                            "Europe",
+                            "Mediterranean",
+                            "Pacific"
+                        ],
+                        "range": [
+                            "#ad494a",
+                            "#5254a3",
+                            "#bd9e39",
+                            "#a55194",
+                            "#8ca252"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "Set_theatre",
+                        "value": 1
+                    },
+                    "value": 0.2
+                }
+            }
+        }
+    ]
+}
