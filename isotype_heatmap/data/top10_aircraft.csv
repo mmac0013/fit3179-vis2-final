@@ -1,0 +1,38 @@
+﻿Aircraft Full Name,Aircraft Series,Image,Col,Number of Missions,Aircraft Type
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,10,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,9,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,8,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,7,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,6,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,5,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,4,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,3,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,2,41497,Heavy Bomber
+B-17 Flying Fortress,B17,isotype/data/bomber_plane.png,1,41497,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,10,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,9,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,8,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,7,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,6,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,5,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,4,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,3,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,2,38191,Heavy Bomber
+B-24 Liberator,B24,isotype/data/bomber_plane.png,1,38191,Heavy Bomber
+B-25 Mitchell,B25,isotype/data/bomber_plane.png,4,16974,Medium Bomber
+B-25 Mitchell,B25,isotype/data/bomber_plane.png,3,16974,Medium Bomber
+B-25 Mitchell,B25,isotype/data/bomber_plane.png,2,16974,Medium Bomber
+B-25 Mitchell,B25,isotype/data/bomber_plane.png,1,16974,Medium Bomber
+B-26 Marauder,B26,isotype/data/bomber_plane.png,3,11584,Medium Bomber
+B-26 Marauder,B26,isotype/data/bomber_plane.png,2,11584,Medium Bomber
+B-26 Marauder,B26,isotype/data/bomber_plane.png,1,11584,Medium Bomber
+A-20 Havoc,A20,isotype/data/bomber_plane.png,3,11576,Boston Light Bomber / Night-Fighter
+A-20 Havoc,A20,isotype/data/bomber_plane.png,2,11576,Boston Light Bomber / Night-Fighter
+A-20 Havoc,A20,isotype/data/bomber_plane.png,1,11576,Boston Light Bomber / Night-Fighter
+Wellington,WELL,isotype/data/bomber_plane.png,2,6354,Medium Bomber
+Wellington,WELL,isotype/data/bomber_plane.png,1,6354,Medium Bomber
+Lancaster,HVY,isotype/data/bomber_plane.png,2,6291,Heavy Bomber
+Lancaster,HVY,isotype/data/bomber_plane.png,1,6291,Heavy Bomber
+P-47 Thunderbolt,P47,isotype/data/bomber_plane.png,1,4650,Fighter / Fighter-Bomber
+A-26 Invader,A26,isotype/data/bomber_plane.png,1,4484,Medium Bomber
+P-51 Mustang,P51,isotype/data/bomber_plane.png,1,3604,Fighter / Fighter-Bomber / Reconnaissance

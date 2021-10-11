@@ -1,0 +1,225 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": "fit-x",
+  "background": "#f6f1ea",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "concat": {
+      "spacing": 40
+    }
+  },
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 300,
+      "title": {
+        "text": "Top 10 Bombers, by Total Missions",
+        "fontSize": 16,
+        "offset": 25
+      },
+      "data": {
+        "url": "isotype_heatmap/data/top10_aircraft.csv"
+      },
+      "layer": [
+        {
+          "params": [
+            {
+              "name": "Aircraft",
+              "select": {
+                "type": "point",
+                "fields": [
+                  "Aircraft Full Name"
+                ],
+                "on": "mouseover"
+              }
+            }
+          ],
+          "mark": {
+            "type": "image",
+            "width": 40,
+            "height": 30
+          },
+          "encoding": {
+            "x": {
+              "field": "Col",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0.5,
+                  10.5
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "Aircraft Full Name",
+              "title": null,
+              "type": "nominal",
+              "sort": {
+                "order": "descending",
+                "op": "count",
+                "field": "col"
+              }
+            },
+            "url": {
+              "field": "Image"
+            },
+            "tooltip": [
+              {
+                "field": "Aircraft Full Name",
+                "title": "Aircraft Name",
+                "type": "nominal"
+              },
+              {
+                "field": "Aircraft Series",
+                "type": "nominal"
+              },
+              {
+                "field": "Aircraft Type",
+                "type": "nominal"
+              },
+              {
+                "field": "Number of Missions",
+                "title": "Total Missions",
+                "type": "quantitative",
+                "format": ","
+              }
+            ],
+            "opacity": {
+              "condition": {
+                "param": "Aircraft",
+                "value": 1
+              },
+              "value": 0.2
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": "Each plane represents 4000 missions flown",
+            "align": "left",
+            "fontSize": 11.5,
+            "fontStyle": "italic",
+            "dx": 130,
+            "dy": 130
+          }
+        }
+      ]
+    },
+    {
+      "width": "container",
+      "height": 300,
+      "title": {
+        "text": "Monthly Schedule of the Top Bomber Missions",
+        "fontSize": 16,
+        "offset": 25
+      },
+      "data": {
+        "url": "isotype_heatmap/data/operations_top10_aircraft.csv"
+      },
+      "params": [
+        {
+          "name": "Aircraft",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Aircraft Full Name"
+            ],
+            "on": "mouseover"
+          }
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "Aircraft Full Name",
+          "title": null,
+          "sort": [
+            "B-17 Flying Fortress",
+            "B-24 Liberator",
+            "B-25 Mitchell",
+            "B-26 Marauder",
+            "A-20 Havoc",
+            "Wellington",
+            "Lancaster",
+            "P-47 Thunderbolt",
+            "A-26 Invader",
+            "P-51 Mustang"
+          ]
+        },
+        "x": {
+          "timeUnit": "yearmonth",
+          "field": "Mission Date",
+          "title": null,
+          "axis": {
+            "domain": true,
+            "format": "%Y",
+            "tickCount": 6
+          }
+        },
+        "color": {
+          "aggregate": "count",
+          "field": "Mission ID",
+          "title": "Missions per Month",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              10,
+              100,
+              250,
+              500,
+              1000
+            ],
+            "scheme": "yellowgreen"
+          },
+          "legend": {
+            "orient": "bottom"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "Aircraft",
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "Aircraft Full Name",
+            "title": "Aircraft Name",
+            "type": "nominal"
+          },
+          {
+            "field": "Aircraft Series",
+            "type": "nominal"
+          },
+          {
+            "field": "Aircraft Type",
+            "type": "nominal"
+          },
+          {
+            "timeUnit": "yearmonth",
+            "field": "Mission Date",
+            "title": "Month",
+            "type": "temporal",
+            "format": "%b %Y"
+          },
+          {
+            "aggregate": "count",
+            "field": "Mission ID",
+            "title": "Missions per Month",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ]
+}

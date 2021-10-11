@@ -19,25 +19,241 @@
 <body>
     <div class="page">
 
-        <h1 class="center">Visualising the Allied Bombing Missions of World War II</h1>
-        <h3 class="center">Sept 1939 to Dec 1945</h3>
-        <br><hr><br><br>
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div class="center">
+                    <h1>The Allied Bombing Missions of World War Two</h1>
+                    <div class="subtitle">
+                        This visualisation explores the bombing operations carried out by the Allied Forces, from
+                        September 1939 to December 1945.<br><br> First, the mission <a href="#timeline">timeline</a> 
+                        and geography is presented, followed by an overview of the most dominant <a href="#aircraft">bomber planes</a>. 
+                        The final section focuses on the contribution of <a href="#raaf">Australia's RAAF</a> to the bombing effort.
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="center" , style="margin-top: 30px;">
+                    <img src="css/b-17.png">
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <hr><br><br>
 
         <!-- pure grid group -->
-        <h2>Timeline and Geography of Bombing Missions</h2>
-        <div class="pure-u-2-3">
-            <div id="timeline_chart" class="vis-container"></div>
+        <h2 id="timeline">Timeline of bombing missions</h2>
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="timeline-chart" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <p>The first allied bombing operations began on <span class="europe">Europe's</span> Western Front
+                        in <b>September 1939</b>, during which the RAF targeted German vessels and infrastructure networks.
+                    <p>
+                    <p>From <b>1940 to 1941</b>, the war spread throughout <span class="europe">Europe</span>, with
+                        strategic bombing over Belgium, the Netherlands and France. Several operations also took place in the
+                        <span class="mediterranean">Mediterranean</span> and parts of <span class="east-africa">East Africa</span>.
+                    </p>
+                    <p>Following the Pearl Harbour attack on <b>December 7, 1941</b>, the Allied Forces began strategic bombing in
+                        the <span class="pacific">Pacific</span> and <span class="china-burma-india">China Burma India</span> theatres.
+                    </p>
+                    <p>Sustained attacks continued on all fronts until <b>August 1945</b>, culminating in the atomic
+                        bombing of Hiroshima on the 6th and Nagasaki on the 9th, which soon resulted in formal surrender of
+                        the Axis Powers on <b>September 2, 1945</b>.
+                    </p>
+                </div>
+            </div>
         </div>
         <br><br><br><br>
+
+        <!-- pure grid group -->
+        <h2 id="aircraft">The WWII bombers that ruled the skies</h2>
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openAircraft(event, 'B17')">B-17</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'B24')">B-24</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'B25')">B-25</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'B26')">B-26</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'A20')">A-20</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'WELL')">Wellington</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'HVY')">Lancaster</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'P47')">P-47</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'A26')">A-26</button>
+                        <button class="tablinks" onclick="openAircraft(event, 'P51')">P-51</button>
+                    </div>
+
+                    <div id="B17" class="tabcontent">
+                        <h3>B-17 Flying Fortress</h3>
+                        <p>The Boeing B-17 Flying Fortress flew 41,497 missions during World War Two - more missions
+                            than any other bomber. The B-17 was prevalent from 1942 onwards, undergoing an
+                            especially heavy campaign from March 1944 to April 1945.</p>
+                        <p>While the heavy bomber served in almost every theatre of operation, it was mostly 
+                            based in Great Britain and employed by the US Eighth Air Force to bombard German targets in
+                            <span class="europe"> Europe</span>.</p>
+                        <img src="isotype_heatmap/data/b17.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="B24" class="tabcontent">
+                        <h3>B-24 Liberator</h3>
+                        <p>The Consolidated B-24 Liberator flew 38,191 missions, behind only the B-17 in terms of mission
+                            count. The B-24 was present from 1942, and supported the B-17 throughout heavy campaigns
+                            from 1943 to mid-1945.</p>
+                        <p>The B-24 gained a distinguished record in the<span class="europe"> European</span>, <span class="pacific"> Pacific</span>, 
+                            <span class="east-africa"> East Africa</span> and<span class="mediterranean"> Mediterranean </span>
+                            theatres. The heavy bomber was the most produced American wartime aircraft, with a longer
+                            operating range than the B-17.</p>
+                        <img src="isotype_heatmap/data/b24.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="B25" class="tabcontent">
+                        <h3>B-25 Mitchell</h3>
+                        <p>The North American B-25 Mitchell was a medium bomber which flew 16,974 missions in World War Two.</p>
+                        <p>It came into operation in April 1942, and was most prolific in the <span class="pacific"> Pacific </span> theatre of operation.
+                            The B-25 was involved in "island-hopping" campaigns and was responsible for sinking many Japanese
+                            destroyers and communication links.</p>
+                        <img src="isotype_heatmap/data/b25.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="B26" class="tabcontent">
+                        <h3>B-26 Marauder</h3>
+                        <p>The Martin B-26 Marauder flew 11,584 missions, beginning in April 1942 and operating along a similar 
+                            timeline to the B-25.</p>
+                        <p>While the B-26 was built in parallel to the B-25, it was much faster and difficult to control, with
+                            a high rate of mechanical failures. It was flown in the<span class="pacific"> Pacific </span>and<span class="europe"> European </span>
+                            theatres, but the <span class="pacific"> Pacific </span>fleet was replaced later on by the more suited B-25's.
+                        </p>
+                        <img src="isotype_heatmap/data/b26.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="A20" class="tabcontent">
+                        <h3>A-20 Havoc</h3>
+                        <p>The Douglas A-20 Havoc was a light-bomber, attacker and night-fighter, and flew 11,576 missions from
+                            September 1942 onwards. It was very durable and was involved in every theatre of operation.</p>
+                        <img src="isotype_heatmap/data/a20.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="WELL" class="tabcontent">
+                        <h3>Vickers Wellington</h3>
+                        <p>The Vickers Wellington flew 6,354 missions and was the first bomber to enter World War Two, flying
+                            from September 1939 to October 1944. It was a British long-range medium bomber, flown mainly in<span class="europe"> Europe </span>
+                            and the <span class="mediterranean"> Mediterranean</span>, with peak campaigns in 1940 and 1941.</p>
+                        <img src="isotype_heatmap/data/well.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="HVY" class="tabcontent">
+                        <h3>Lancaster</h3>
+                        <p>The Avro Lancaster was a renowned British bomber, used in reconaissance and heavy bombing missions
+                            throughout<span class="europe"> Europe</span>. Its first mission was in November 1940, and it continued to operate almost until the end
+                            of the war, clocking 6,291 missions.</p>
+                        <img src="isotype_heatmap/data/hvy.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="P47" class="tabcontent">
+                        <h3>P-47 Thunderbolt</h3>
+                        <p>The Republic P-47 Thunderbolt was a fighter bomber which flew 4,650 missions, starting in February
+                            1943. It was the largest and heaviest single-fighter built. The P-47's late development led to its primary 
+                            deployment in th <span class="pacific"> Pacific </span>theatre.</p>
+                        <img src="isotype_heatmap/data/p47.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="A26" class="tabcontent">
+                        <h3>A-26 Invader</h3>
+                        <p>The Douglas A-26 Invader flew 4,480 missions, despite not entering the war until relatively late. It flew
+                            three missions in November 1943, but operated more heavily in the<span class="pacific"> Pacific </span>from 1945.</p>
+                        <p>The A-26 had a longer range and heavy armament with remote power-driven gun turrets. It required a three-man 
+                            crew to operate, consisting of a pilot, navigator and bombardier. 
+                        </p>
+                        <img src="isotype_heatmap/data/a26.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                    <div id="P51" class="tabcontent">
+                        <h3>P-51 Mustang</h3>
+                        <p>The North American P-51 Mustang flew 3,604 missions, the majority occuring between 1944 and mid-1945. The 
+                            The P-51 was the highest-scoring US fighter in<span class="europe"> Europe</span>, destroying 4,950 enemy aircraft. 
+                        </p>
+                        <img src="isotype_heatmap/data/p51.png" style="max-width: 100%; max-height: 100%;">
+                    </div>
+
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="aircraft-chart" class="vis-container"></div>
+            </div>
+        </div>
+        <br><br><br><br>
+
+        <!-- pure grid group -->
+        <h2 id="raaf">The contribution of the Royal Australian Air Force</h2>
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="flowmap" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <p>The RAAF contributed to <b>287 of the 168,984</b> Allied missions of World War Two. The RAAF's missions took
+                        place from <b>1941 to 1942</b>, and occurred mostly in neighbouring South-East Asia, with 
+                        the exception of a few target missions in Lebanon and Syria.</p>
+                    <p><span style="color: #5254a3; font-weight: bold">Cairns</span> was the largest RAAF operating base - it 
+                        launched <b>95 missions</b>, targeting various regions of New Guinea and the Bismarck Archipelago. The RAAF had several bases 
+                        in the Northern Territory, with missions departing from either the <span style="color: #393b79; font-weight: bold">Bachelor Field</span>, 
+                        <span style="color: #843c39; font-weight: bold">Darwin</span> or <span style="color: #ad494a; font-weight: bold">Hughes</span> base, 
+                        and targeting short-range locations in South-East Asia. The RAAF also used the <span style="color: #8ca252; font-weight: bold">Port Moresby </span>
+                        base to stage local bombing raids in New Guinea.</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 
 </body>
 
-    <script type="text/javascript">
-        var specVis1 = "proportional_symbol_area_chart/js/timeline_chart.json";
-        vegaEmbed('#timeline_chart', specVis1).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-    </script>
+<script type="text/javascript">
+
+    var specVis1 = "proportional_symbol_area_chart/js/timeline_chart.json";
+    vegaEmbed('#timeline-chart', specVis1).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var specVis2 = "isotype_heatmap/js/aircraft_chart.vg.json";
+
+    vegaEmbed('#aircraft-chart', specVis2, { "actions": false }).then(function (result) {
+
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var specVis3 = "flowmap/js/flowmap.vg.json";
+
+    vegaEmbed('#flowmap', specVis3).then(function (result) {
+
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var specVis4 = "flowmap/js/donut_chart.vg.json";
+
+    vegaEmbed('#donut', specVis4).then(function (result) {
+
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    function openAircraft(evt, aircraftName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(aircraftName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementsByClassName("tablinks")[0].click();
+
+</script>
+
 </html>

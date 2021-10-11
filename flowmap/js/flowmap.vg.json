@@ -1,0 +1,371 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": "fit-x",
+  "background": "#f6f1ea",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "tickBand": "extent"
+    }
+  },
+  "width": "container",
+  "height": 400,
+  "title": {
+    "text": "Flight Paths of RAAF Bombing Missions",
+    "fontSize": 16,
+    "offset": 25
+  },
+  "projection": {
+    "type": "orthographic",
+    "rotate": [
+      -141,
+      10,
+      5
+    ],
+    "scale": {
+      "expr": "Zoom_level"
+    }
+  },
+  "params": [
+    {
+      "name": "Zoom_level",
+      "value": 300,
+      "bind": {
+        "input": "select",
+        "options": [
+          300,
+          900
+        ],
+        "name": "Zoom:  "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "flowmap/js/apac.json",
+        "format": {
+          "type": "topojson",
+          "feature": "apac"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d0c8b6",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "flowmap/data/raaf_operations.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum['Takeoff Longitude'] != 0  && datum['Takeoff Latitude'] != 0"
+        }
+      ],
+      "params": [
+        {
+          "name": "Filter_base",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Takeoff Base Formatted"
+            ],
+            "on": "mouseover"
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "rule"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Takeoff Longitude"
+        },
+        "latitude": {
+          "field": "Takeoff Latitude"
+        },
+        "longitude2": {
+          "field": "Target Longitude"
+        },
+        "latitude2": {
+          "field": "Target Latitude"
+        },
+        "color": {
+          "field": "Takeoff Base Formatted",
+          "scale": {
+            "domain": [
+              "Unidentified",
+              "Port Moresby",
+              "Batchelor Field",
+              "Cairns",
+              "Darwin",
+              "Hughes",
+              "Nowra",
+              "Rathmines"
+            ],
+            "range": [
+              "#637939",
+              "#8ca252",
+              "#393b79",
+              "#5254a3",
+              "#843c39",
+              "#ad494a",
+              "#7b4173",
+              "#a55194"
+            ]
+          }
+        },
+        "strokeWidth": {
+          "value": 0.6
+        },
+        "opacity": {
+          "value": 0,
+          "condition": {
+            "param": "Filter_base",
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "flowmap/data/raaf_operations.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum['Takeoff Longitude'] != 0  && datum['Takeoff Latitude'] != 0"
+        }
+      ],
+      "mark": {
+        "type": "circle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Takeoff Longitude"
+        },
+        "latitude": {
+          "field": "Takeoff Latitude"
+        },
+        "color": {
+          "field": "Takeoff Base Formatted",
+          "title": "Takeoff Base",
+          "scale": {
+            "domain": [
+              "Unidentified",
+              "Port Moresby",
+              "Batchelor Field",
+              "Cairns",
+              "Darwin",
+              "Hughes",
+              "Nowra",
+              "Rathmines"
+            ],
+            "range": [
+              "#637939",
+              "#8ca252",
+              "#393b79",
+              "#5254a3",
+              "#843c39",
+              "#ad494a",
+              "#7b4173",
+              "#a55194"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "padding": 20
+          }
+        },
+        "size": {
+          "aggregate": "count",
+          "field": "Mission ID",
+          "title": "Number of Takeoffs",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              10,
+              50
+            ],
+            "range": [
+              50,
+              100,
+              400
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left"
+          }
+        },
+        "opacity": {
+          "value": 0,
+          "condition": {
+            "param": "Filter_base",
+            "value": 0.8
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Takeoff Base Formatted",
+            "title": "Takeoff Base"
+          },
+          {
+            "field": "Takeoff Country Formatted",
+            "title": "Takeoff Country"
+          },
+          {
+            "field": "Takeoff Longitude"
+          },
+          {
+            "field": "Takeoff Latitude"
+          },
+          {
+            "aggregate": "count",
+            "field": "Mission ID",
+            "title": "Number of Missions"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "flowmap/data/raaf_operations.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum['Target Longitude'] != 0  && datum['Target Latitude'] != 0"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "diamond"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Target Longitude"
+        },
+        "latitude": {
+          "field": "Target Latitude"
+        },
+        "color": {
+          "field": "Takeoff Base Formatted",
+          "title": "Takeoff Base",
+          "scale": {
+            "domain": [
+              "Unidentified",
+              "Port Moresby",
+              "Batchelor Field",
+              "Cairns",
+              "Darwin",
+              "Hughes",
+              "Nowra",
+              "Rathmines"
+            ],
+            "range": [
+              "#637939",
+              "#8ca252",
+              "#393b79",
+              "#5254a3",
+              "#843c39",
+              "#ad494a",
+              "#7b4173",
+              "#a55194"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "padding": 10
+          }
+        },
+        "strokeWidth": {
+          "value": 1
+        },
+        "size": {
+          "value": 70
+        },
+        "opacity": {
+          "value": 0,
+          "condition": {
+            "param": "Filter_base",
+            "value": 1
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Target Country Formatted",
+            "title": "Target Location"
+          },
+          {
+            "field": "Target Type",
+            "title": "Target Location"
+          },
+          {
+            "field": "Target Longitude"
+          },
+          {
+            "field": "Target Latitude"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "flowmap/data/raaf_operations.csv"
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum['Mission ID'] == 131993"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dy": 20
+          },
+          "encoding": {
+            "text": {
+              "value": ["Cairns was the largest RAAF base,", "with 95 recorded takeoffs"]
+            },
+            "longitude": {
+              "field": "Takeoff Longitude"
+            },
+            "latitude": {
+              "field": "Takeoff Latitude"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum['Mission ID'] == 121772"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": -80,
+            "dy": 25
+          },
+          "encoding": {
+            "text": {
+              "value": ["The RAAF had three bases", "in the Northern Territory"]
+            },
+            "longitude": {
+              "field": "Takeoff Longitude"
+            },
+            "latitude": {
+              "field": "Takeoff Latitude"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

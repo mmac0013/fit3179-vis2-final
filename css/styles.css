@@ -4,13 +4,24 @@
 }
 h1 {
   font-weight: 900;
+  font-size: 35pt;
 }
-body{
-  background-color: rgb(184, 88, 88);
+h2 {
+  font-size: 20pt;
+}
+p {
+  text-align: justify;
+  font-size: large;
+}
+.subtitle{
+  font-size: larger;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
 }
 .page{
   width: auto;    
-  background-color: white;   
+  background-color: #f6f1ea;   
   margin: auto;
   padding: 50px;
   padding-top: 35px;
@@ -36,10 +47,76 @@ body{
 .center{
   text-align: center;
 }
-
+.right{
+  align-items: right;
+}
 form.vega-bindings{
   position: absolute;
-  right: 30px;
-  top: 0;
+  right: 50px;
+  top: 60px;
   font-size: 14px;
+}
+.vega-embed.has-actions {
+  padding-right: 0px;
+}
+span.china-burma-india{
+  color: #ad494a;
+  font-weight: bold;
+}
+span.east-africa{
+  color: #5254a3;
+  font-weight: bold;
+}
+span.europe{
+  color: #bd9e39;
+  font-weight: bold;
+}
+span.mediterranean{
+  color: #a55194;
+  font-weight: bold;
+}
+span.pacific{
+  color: #8ca252;
+  font-weight: bold;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #c0e6ba;
+  margin: 15px;
+  border: 1px solid #ccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 16px 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #46ab5e;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #46ab5e;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 12px 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top: none;
 }
