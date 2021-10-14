@@ -25,17 +25,6 @@
             }
         },
         {
-            "name": "Zoom_level",
-            "value": 250,
-            "bind": {
-                "input": "range",
-                "min": 250,
-                "max": 1500,
-                "step": 250,
-                "name": "Zoom:  "
-            }
-        },
-        {
             "name": "Set_centre_zoom",
             "value": [[130, 100], 250],
             "bind": {
