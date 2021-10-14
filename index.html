@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="pure-u-1-3">
-                <div class="center" , style="margin-top: 30px;">
+                <div class="center" , style="margin-top: 40px;">
                     <img src="css/b-17.png">
                 </div>
             </div>
@@ -48,6 +48,7 @@
             </div>
             <div class="pure-u-1-3">
                 <div class="description description-right">
+                    <br>
                     <p>The first allied bombing operations began on <span class="europe">Europe's</span> Western Front
                         in <b>September 1939</b>, during which the RAF targeted German vessels and infrastructure networks.
                     <p>
@@ -62,6 +63,8 @@
                         bombing of Hiroshima on the 6th and Nagasaki on the 9th, which soon resulted in formal surrender of
                         the Axis Powers on <b>September 2, 1945</b>.
                     </p>
+                    <img src="css/nagasaki.jpg" style="max-width: 100%; margin-top: 7%; margin-left: 15%; margin-right: 15%;">
+                    <figcaption class="center" style="max-width: 100%; margin-top: 2.5%;">Atomic bombing of Nagasaki - August 9, 1945</figcaption>
                 </div>
             </div>
         </div>
@@ -229,6 +232,13 @@
     vegaEmbed('#flowmap', specVis3).then(function (result) {
 
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var specVis4 = "flowmap/js/donut_chart.vg.json";
+
+    vegaEmbed('#donut', specVis4).then(function (result) {
+
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     function openAircraft(evt, aircraftName) {
