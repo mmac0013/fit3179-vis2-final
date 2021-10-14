@@ -36,38 +36,22 @@
             }
         },
         {
-            "name": "Set_centre",
-            "value": [
-                90,
-                70
-            ],
+            "name": "Set_centre_zoom",
+            "value": [[130, 100], 250],
             "bind": {
                 "input": "select",
                 "options": [
-                    [
-                        90,
-                        70
-                    ],
-                    [
-                        10,
-                        60
-                    ],
-                    [
-                        125,
-                        25
-                    ],
-                    [
-                        124,
-                        42
-                    ],
-                    [
-                        20,
-                        35
-                    ]
+                    [[130, 100], 250],
+                    [[5, 60], 1900],
+                    [[15, 52], 1600],
+                    [[125, 25], 750],
+                    [[124, 42], 750],
+                    [[20, 35], 750]
                 ],
                 "labels": [
                     "World",
-                    "Europe",
+                    "Central Europe",
+                    "Mediterranean",
                     "South-East Asia",
                     "North-East Asia",
                     "Africa"
@@ -83,10 +67,10 @@
             "projection": {
                 "type": "equalEarth",
                 "center": {
-                    "expr": "Set_centre"
+                    "expr": "Set_centre_zoom[0]"
                 },
                 "scale": {
-                    "expr": "Zoom_level"
+                    "expr": "Set_centre_zoom[1]"
                 }
             },
             "layer": [
