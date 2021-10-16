@@ -220,10 +220,12 @@
             "title": "Takeoff Country"
           },
           {
-            "field": "Takeoff Longitude"
+            "field": "Takeoff Longitude",
+            "format": ".2f"
           },
           {
-            "field": "Takeoff Latitude"
+            "field": "Takeoff Latitude",
+            "format": ".2f"
           },
           {
             "aggregate": "count",
@@ -306,10 +308,12 @@
             "title": "Target Location"
           },
           {
-            "field": "Target Longitude"
+            "field": "Target Longitude",
+            "format": ".2f"
           },
           {
-            "field": "Target Latitude"
+            "field": "Target Latitude",
+            "format": ".2f"
           }
         ]
       }
