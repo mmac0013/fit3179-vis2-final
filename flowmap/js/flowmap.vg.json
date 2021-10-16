@@ -359,10 +359,12 @@
               "value": ["The RAAF had three bases", "in the Northern Territory"]
             },
             "longitude": {
-              "field": "Takeoff Longitude"
+              "field": "Takeoff Longitude",
+              "format": ".2f"
             },
             "latitude": {
-              "field": "Takeoff Latitude"
+              "field": "Takeoff Latitude",
+              "format": ".2f"
             }
           }
         }
